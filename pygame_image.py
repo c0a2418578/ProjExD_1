@@ -31,7 +31,7 @@ def main():
         elif k[pg.K_DOWN]:
             y += 1
         elif k[pg.K_RIGHT]:
-            x += 1
+            x += 2
         elif k[pg.K_LEFT]:
             x -= 1
         kk_rct.move_ip((x-tmr, y))
