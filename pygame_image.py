@@ -34,7 +34,7 @@ def main():
             x += 1
         elif k[pg.K_LEFT]:
             x -= 1
-        kk_rct.move_ip((x, y))
+        kk_rct.move_ip((x-tmr, y))
         screen.blit(kk_img, kk_rct)
         pg.display.update()
         tmr += 1
