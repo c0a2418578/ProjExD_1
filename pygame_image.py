@@ -16,13 +16,26 @@ def main():
     kk_img = pg.transform.rotozoom(kk_img, 10, 1.0)
     tmr = 0
     x = 0
+    y = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         screen.blit(bg_img2, [-tmr + 1600, 0])
         screen.blit(bg_img, [-tmr, 0])
         screen.blit(bg_img, [-tmr+3200, 0])
-        screen.blit(kk_img, [300, 200])
+        kk_rct = kk_img.get_rect()
+        kk_rct.center = 300, 200
+        k = pg.key.get_pressed()
+        if k[pg.K_UP]:
+            y -= 1
+        elif k[pg.K_DOWN]:
+            y += 1
+        elif k[pg.K_RIGHT]:
+            x += 1
+        elif k[pg.K_LEFT]:
+            x -= 1
+        kk_rct.move_ip((x, y))
+        screen.blit(kk_img, kk_rct)
         pg.display.update()
         tmr += 1
         if tmr == 3199:
